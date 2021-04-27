@@ -35,3 +35,14 @@
 * 80 : http 서비스를 제공하는 Port
 원래 http서비스에 접속 하기 위해서는 http://naver.com:80 사용을 해야 하는데 http~~ 으로 시작되는 주소는 모두 80번 port 통해서 접속한다 라는 약속이 정해져 있다
 그래서 :80은 생략해도 된다. http://naver.com 이라고만 사용해도 된다.
+* 443 : https 서비스를 제공하는 port
+https://naver.com:443
+
+### Tomcat Server Start
+* Oracle Http Service Port 변경 (8080 > 9090으로)
+* eclipse의 Tomcat Server Start
+* Browser에서 localhost:808, 127.0.0.1:8080으로 접속하면 Apache Tomcat 메세지 확인
+
+### localhost, 127.0.0.1
+* 컴퓨터의 Local Loop Back Address
+* Local에서 Server등의 서비스를 실행하고 테스트 할 수 있는 주소
