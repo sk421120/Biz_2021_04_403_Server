@@ -16,7 +16,7 @@
 	<h5>대여일 : ${BOOK.br_sdate}</h5>
 	<h5>반납일 : ${BOOK.br_edate}</h5>
 	<h5>대여료 : ${BOOK.br_price}</h5>
-	
+	<button onclick="history.back()">Back</button>
 	
 </body>
 </html>

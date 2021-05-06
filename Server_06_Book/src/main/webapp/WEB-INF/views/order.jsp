@@ -13,5 +13,6 @@
 		<input name="bu_name"/>
 		<button>전송</button>
 	</form>
+	<button onclick="history.back()">Back</button>
 </body>
 </html>
