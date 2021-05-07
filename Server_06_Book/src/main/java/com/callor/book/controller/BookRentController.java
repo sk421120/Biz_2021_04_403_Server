@@ -210,8 +210,10 @@ public class BookRentController extends HttpServlet {
 			int result = brService.insert(brVO);
 			if(result > 0) {
 				out.println("대여정보 추가 성공!!");
+				resp.sendRedirect("/book/");
 			} else {
 				out.println("대여정보 추가 실패!");
+				resp.sendRedirect("/book/order");
 			}
 			out.close();
 		} else if(subPath.equals("/return")) {
@@ -221,7 +223,6 @@ public class BookRentController extends HttpServlet {
 		} else {
 			// 더이상 그만하기
 			out.println("NOT FOUND");
-			out.println("<a href='");
 			out.close();
 			return;
 		}
