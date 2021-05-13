@@ -1,11 +1,109 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set value="${pageContext.request.contextPath }" var="rootPath"/>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>식품정보 검색</title>
+<style>
+	
+	/*
+	 tag에 padding을 설정하면 실제 width 보다 더 커지는 현상이 발생한다
+	 
+	 이러한 현산은 UI 화면을 눈에 거슬리게 하는 결과가 된다
+	 
+	 padding 주었을때 좌, 우의 padding을 밖으로 보내지 않고
+	 내부로 흡수하는 옵션
+	 
+	 이 설정을 style의 맨 상단에 설정하면 padding으로 인한
+	 Layout의 흐트러짐을 막을 수 있다.
+	*/
+	
+	* {
+		box-sizing: border-box;
+	}
+	
+	/* h1, form, table tag에 공통된 style 지정 */
+	h1, form, table {
+		width : 80%;
+		margin : 0px auto;
+	}
+	
+	h1 {
+		background-color: rgba(30,230,30,0.5);
+		color: #fff;
+		padding : 1rem;
+		text-align: center;
+	}
+	
+	form {
+		border : 5px solid salmon;
+		padding-left: 10px;
+		margin-top: 5px;
+		border-radius: 20px;
+	}
+	
+	table {
+		border : 1px solid gray;
+		margin-top: 5px;
+		border-collapse: collapse;
+	}
+	
+	td, th {
+		border:1px solid green;
+		padding : 2px;
+	}
+	
+	tr:nth-child(odd) {
+		background-color: #eee;
+	}
+	
+	tr:nth-child(even) {
+		background-color: #efe;
+	}
+	
+	/*
+		table 의 어떤 row에 마우스가 올라가면 바탕색을 #aaa로
+		마우스 커서 모양을 손모양으로
+	 */
+	
+	/*
+		#aaa = AA AA AA = 10*10 10*10 10*10
+		#000 ~ #fff gray level
+		rgb(100,100,100)
+		rgb(255,255,255) 화이트
+		
+	
+	*/
+	tr:hover {
+		background-color: #bbb;
+		cursor: pointer;
+	}
+	
+	input {
+		border : 1px solid salmon;
+		padding : 8px;
+		width: 50%;
+		border-radius: 8px;
+	}
+
+	a {
+		text-decoration: none;
+		/*
+		 스타일의 상속 (inherit)
+		 나(a tag)를 감싸고 있는(td) tag의 color가 변경되면 나도 따라 바뀔래
+		*/
+		color: inherit;
+	}
+	
+	a:hover {
+		text-decoration: underline;
+		color: white;
+	}
+</style>
 </head>
 <body>
 	<h1>무엇을 먹을까</h1>
@@ -61,8 +159,13 @@
 	 					<%--
 	 					forEach가 만든 FOOD(DTO)에서 각 변수값을 getter하여 화면에 보여라
 	 					 --%>
+	 					 
 		 				<td>${FOOD.fd_code}</td>
-						<td>${FOOD.fd_name}</td>
+						<td>
+						<a href="${rootPath }/food/insert?fd_code=${FOOD.fd_code}">
+						${FOOD.fd_name}
+						</a>
+						</td>
 						<td>${FOOD.fd_year}</td>
 						<td>${FOOD.cp_name}</td>
 						<td>${FOOD.it_name}</td>

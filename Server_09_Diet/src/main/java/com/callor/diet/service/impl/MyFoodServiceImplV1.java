@@ -10,26 +10,26 @@ import java.util.List;
 import com.callor.diet.config.DBContract;
 import com.callor.diet.config.DBInfo;
 import com.callor.diet.model.FoodDTO;
-import com.callor.diet.model.FoodVO;
-import com.callor.diet.service.FoodService;
+import com.callor.diet.model.MyFoodCDTO;
+import com.callor.diet.model.MyFoodVO;
+import com.callor.diet.service.MyFoodService;
 
-public class FoodServiceImlplV1 implements FoodService{
+public class MyFoodServiceImplV1 implements MyFoodService {
 
 	protected Connection dbConn;
-	
-	public FoodServiceImlplV1() {
+
+	public MyFoodServiceImplV1() {
 		dbConn = DBContract.getDBConnection();
 	}
-	
-	// DBMS에 SQL을 보내고 결과를 받아서 List 데이터로 만들어 주는 함수
-	protected List<FoodDTO> select(PreparedStatement pStr) throws SQLException {
-		
+
+	protected List<MyFoodCDTO> select(PreparedStatement pStr) throws SQLException {
+
 		ResultSet rSet = pStr.executeQuery();
-		
-		List<FoodDTO> foodList = new ArrayList<FoodDTO>();
-		
+
+		List<MyFoodCDTO> foodCList = new ArrayList<MyFoodCDTO>();
+
 		// DBMS에서 받은 데이터가 있으면
-		while(rSet.next()) {
+		while (rSet.next()) {
 			FoodDTO dto = new FoodDTO();
 			dto.setFd_code(rSet.getString(DBInfo.FOOD.fd_code));
 			dto.setFd_name(rSet.getString(DBInfo.FOOD.fd_name));
@@ -49,85 +49,79 @@ public class FoodServiceImlplV1 implements FoodService{
 			dto.setCp_addr(rSet.getString(DBInfo.FOOD.cp_addr));
 			dto.setCp_item(rSet.getString(DBInfo.FOOD.cp_item));
 			dto.setIt_name(rSet.getString(DBInfo.FOOD.it_name));
-			foodList.add(dto);
+//			foodList.add(dto);
 		}
-		return foodList;
+		return null;
 	}
-	
+
 	@Override
-	public List<FoodDTO> selectAll() {
+	public List<MyFoodCDTO> selectAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public FoodDTO findById(String fd_code) {
-		// TODO 식품코드로 검색하기
-		String sql = " SELECT * FROM view_식품정보 ";
-		sql += " WHERE ";
-		sql += DBInfo.FOOD.fd_code ;
-		sql += " = ? ";
-		
-		PreparedStatement pStr = null;
-		try {
-			pStr = dbConn.prepareStatement(sql);
-			pStr.setString(1, fd_code);
-			
-			List<FoodDTO> foodList = this.select(pStr);
-			if(foodList !=null && foodList.size() > 0) {
-				pStr.close();
-				return foodList.get(0);
-			}
-			pStr.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public MyFoodCDTO findById(Long seq) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<FoodDTO> findByFname(String fd_name) {
-		// TODO 식품명으로 검색하기
-		String sql = " SELECT * FROM view_식품정보 ";
-		sql += " WHERE ";
-		sql += DBInfo.FOOD.fd_name ;
-		sql += " LIKE '%' || ? || '%' ";
+	public List<MyFoodCDTO> findByName(String mf_name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<MyFoodCDTO> findByDate(String mf_date) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int insert(MyFoodVO myFoodVO) {
+		// TODO Auto-generated method stub
+		String sql = " INSERT INTO tbl_myfoods (";
+		sql += " mf_seq, ";
+		sql += " mf_fcode,";
+		sql += " mf_date,";
+		sql += " mf_amt)";
+		sql += " VALUES ( ";
+		sql += "  seq_myfoods.NEXTVAL,";
+		sql += " ?, ?, ? )";
+		
+		System.out.println(sql);
 		
 		PreparedStatement pStr = null;
 		
 		try {
 			pStr = dbConn.prepareStatement(sql);
-			pStr.setString(1, fd_name.trim());
+			pStr.setString(1, myFoodVO.getMf_fcode());
+			pStr.setString(2, myFoodVO.getMf_date());
+			pStr.setFloat(3, myFoodVO.getMf_amt());
 			
-			List<FoodDTO> foodList = this.select(pStr);
+			int result = pStr.executeUpdate();
 			
 			pStr.close();
-			return foodList;
+			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return null;
+
+		return 0;
 	}
 
 	@Override
-	public int insert(FoodVO foodVO) {
+	public int update(MyFoodVO myFoodVO) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void update(FoodVO foodVO) {
+	public int delete(Long seq) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(String fd_code) {
-		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 
 }

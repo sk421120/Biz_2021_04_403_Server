@@ -10,7 +10,7 @@ public interface FoodService {
 	// CRUD를 구현할 method 정의(설계)
 	// 데이터 조회(read)
 	public List<FoodDTO> selectAll();	// 전체조회
-	public FoodDTO selectId(String fd_code);		// 코드로 조회
+	public FoodDTO findById(String fd_code);		// 코드로 조회
 	
 	public List<FoodDTO> findByFname(String fd_name);	// 이름으로 조회
 	
