@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set value="${pageContext.request.contextPath }" var="rootPath" />
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="/guest/static/css/home.css?ver2021-05-18-0434"	rel="stylesheet" />
+<style>
+div.view_btn {
+	width: 80%;
+	margin: 10px auto;
+	text-align: right;
+}
+
+div.view_btn button {
+	margin: 5px;
+	padding: 8px;
+	outline: none;
+	border: none;
+	color: white;
+}
+
+div.view_btn button:nth-child(1) {
+	background-color: gray;
+}
+
+div.view_btn button:nth-child(2) {
+	background-color: lightgray;
+}
+
+div.view_btn button:nth-child(3) {
+	background-color: lightred;
+}
+
+div.view_btn button:hover {
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+</style>
+
+<script>
+
+</script>
+
+</head>
+<body>
+	<%@ include file="/WEB-INF/views/include_nav.jsp"%>
+
+	<table>
+		<tr>
+			<th>작성일</th>
+			<td>${GBOOK.gb_date }</td>
+			<th>작성시각</th>
+			<td>${GBOOK.gb_time }</td>
+		</tr>
+		<tr>
+			<th>작성자</th>
+			<td>${GBOOK.gb_writer }</td>
+			<th>Email</th>
+			<td>${GBOOK.gb_email }</td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td colspan="3">${GBOOK.gb_content }</td>
+		</tr>
+	</table>
+
+	<div class="view_btn">
+		<button></button>
+		<button></button>
+		<button></button>
+	</div>
+</body>
+</html>
