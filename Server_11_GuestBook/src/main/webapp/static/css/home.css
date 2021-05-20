@@ -21,29 +21,6 @@ h1 {
 	padding: 2rem;
 }
 
-nav {
-	padding: 20px;
-}
-
-ul {
-	margin: 0px;
-	background-color: salmon;
-	text-align: center;
-}
-
-li {
-	margin: 0px;
-	padding: 10px;
-	color: white;
-	display: inline-block;
-	list-style: none;
-}
-
-li:hover {
-	background-color: lightsalmon;
-	color: black;
-}
-
 table {
 	border-collapse: collapse;
 	width: 95%;

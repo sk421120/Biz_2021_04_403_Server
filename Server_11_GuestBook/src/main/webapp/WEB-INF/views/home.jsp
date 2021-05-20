@@ -17,7 +17,6 @@
 			<th>작성시각</th>
 			<th>작성자</th>
 			<th>Email</th>
-			<th>내용</th>
 		</tr>
 		<c:forEach items="${GBLIST }" var="GB">
 			<tr>
@@ -26,7 +25,6 @@
 				<td><a href="${rootPath }/guest/view?gb_seq=${GB.gb_seq}">
 						${GB.gb_writer } </a></td>
 				<td>${GB.gb_email }</td>
-				<td>${GB.gb_content }</td>
 			</tr>
 		</c:forEach>
 

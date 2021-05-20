@@ -28,15 +28,15 @@ div.view_btn button:nth-child(1) {
 }
 
 div.view_btn button:nth-child(2) {
-	background-color: lightgray;
+	background-color: rgb(120, 220, 120);
 }
 
 div.view_btn button:nth-child(3) {
-	background-color: lightred;
+	background-color: rgb(220, 100, 100);
 }
 
 div.view_btn button:hover {
-	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 </style>
 
@@ -68,9 +68,9 @@ div.view_btn button:hover {
 	</table>
 
 	<div class="view_btn">
-		<button></button>
-		<button></button>
-		<button></button>
+		<button>처음으로</button>
+		<button>수정하기</button>
+		<button>삭제하기</button>
 	</div>
 </body>
 </html>
