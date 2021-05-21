@@ -41,6 +41,34 @@ div.view_btn button:hover {
 </style>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+	document.querySelector("div.view_btn").addEventListener("click", function(ev) {
+		
+		//let target = ev.target;
+		//alert(target.className);
+		// 클릭된 tag의 클래스 이름 가져오기
+		let className = ev.target.className;
+		
+		if( className == "btn_home") {
+			alert(target.className)
+		} else if( className == "btn_update") {
+			document.location.href = "${rootPath}/guest/update?gb_seq=" + ${GBOOK.gb_seq};
+			
+		} else if( className == "btn_delete") {
+			if(confirm("방명록을 삭제합니다.")) {
+				// document.location.href = url 와 replace(url)
+				
+				// href 는 새로운 페이지를 열고 URL 에서 resp 한 정보를 보여준다
+				// 새로운 페이지에서 뒤로가기를 하면 현재 페이지로 되돌아 올 수 있다.
+				
+				// replace() 현재 페이지에서 새로운 페이지에서 뒤로가기를 했을 때
+				// 현재 페이지를 볼 수 없다
+				
+				document.location.replace( "${rootPath}/guest/delete?gb_seq=" + ${GBOOK.gb_seq} )
+			}
+		}
+	})
+})
 
 </script>
 
@@ -68,9 +96,9 @@ div.view_btn button:hover {
 	</table>
 
 	<div class="view_btn">
-		<button>처음으로</button>
-		<button>수정하기</button>
-		<button>삭제하기</button>
+		<button class="btn_home">처음으로</button>
+		<button class="btn_update">수정하기</button>
+		<button class="btn_delete">삭제하기</button>
 	</div>
 </body>
 </html>

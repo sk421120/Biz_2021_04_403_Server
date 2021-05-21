@@ -1,6 +1,7 @@
 package com.callor.maven;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,9 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.callor.config.MySQLConnection;
+
 @WebServlet("/")
 public class HomeController extends HttpServlet{
 
+	protected Connection dbConn;
+	
+	public HomeController() {
+		dbConn = MySQLConnection.getDBConnection();
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Date date = new Date();

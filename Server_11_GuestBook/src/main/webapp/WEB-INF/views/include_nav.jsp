@@ -1,8 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style>
+/*
+CSS를 사용하여 화면을 디자인 할때 항상 제일 먼저 있어야 할 설정
+기본 HTML의 margin, padding을 clear(Reset)하여 이후에 작성된 CSS의 margin, padding을
+원활히 적용시키기 위함
+
+box-si :border-box;
+Block typeㄴㅇ
+*/
+* {
+	margin : 0;
+	padding : 0;
+	box-sizing: border-box;
+}
+
+h1.main {
+	background-color: salmon;
+	color: white;
+	text-align: center;
+	padding: 2rem;
+}
+
 nav#main {
-	padding: 20px;
+	background-color: salmon;
+	border-top: 4px dotted white;
 }
 /*
 	ul tag는 본문에서 보편적으로 list 등을 표현할 때 많이 사용하는 tag 이다
@@ -18,8 +40,8 @@ nav#main {
 nav#main ul {
 	margin: 0px;
 	background-color: salmon;
-	text-align: center;
 }
+/* text-align: center; */
 
 nav#main li {
 	margin: 0px 10px;
@@ -30,7 +52,7 @@ nav#main li {
 }
 
 nav#main li:hover {
-	background-color: lightsalmon;
+	background-color: rgba(255,255,255,0.2);
 	color: white;
 	cursor: pointer;
 }
@@ -50,7 +72,7 @@ nav#main a {
 	HTML 문서의 모든 객체의 시작점 객체는 document
 	
 	*/
-	document.addEventListner("DOMContentLoaded", function(ev){
+	document.addEventListener("DOMContentLoaded", function() {
 		/*
 		상단 메뉴의 항목을 클릭했을때
 		url를 전환하여 다른 화면으로 점프하기
@@ -87,7 +109,7 @@ nav#main a {
 </script>
 
 
-<h1>방명록 2021.05</h1>
+<h1 class="main">방명록 2021.05</h1>
 <%-- 메뉴를 설정할 때 사용하는 tag --%>
 <%-- div 라는 tag 사용하여 layout을 설정했는데 --%>
 <%-- HTML 5에서는 Symatec(의미있는 이름으로) tag를 사용하는 것을 권장--%>
@@ -117,9 +139,9 @@ nav#main a {
 		 --%>
 		<li><a href="${rootPath }/">Home</a></li>
 		<li><a href="${rootPath }/notice">공지사항</a></li>
-		<li><a href="${rootPath }/">회사소개</li>
-		<li><a href="${rootPath }/">로그인</li>
-		<li><a href="${rootPath }/">회원가입</li>
-		</a>
+		<li><a href="${rootPath }/">회사소개</a></li>
+		<li><a href="${rootPath }/">로그인</a></li>
+		<li><a href="${rootPath }/">회원가입</a></li>
+		
 	</ul>
 </nav>
