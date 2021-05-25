@@ -11,5 +11,6 @@
 <body>
 	<h1>안녕하세요 좋은 아침입니다!</h1>
 	<h2>${TODAY }</h2>
+	<h1>mysql no connection in Mac</h1>
 </body>
 </html>
