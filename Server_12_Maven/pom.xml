@@ -8,9 +8,14 @@
 	<packaging>pom</packaging>
 	<name>sk421120</name>
 	
+	<!-- pom.xml에서 공통으로 사용할 변수
+	Java Version
+	Java(1.1)	Java2(1.2 ~ 1.4)	Java5(1.5 ~ 1.6)
+	Java7(1.7 ~ 1.8)	Java8(1.8 ~ 9, 10, 11, 15, 16)
+	1.8 stream 추가		10 새로운 변수 키워드(var)
+	 -->
 	<properties>
 		<java-version>15</java-version>
-
 	</properties>
 
 	<dependencies>
@@ -27,6 +32,12 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.25</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
