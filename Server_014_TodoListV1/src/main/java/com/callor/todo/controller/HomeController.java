@@ -45,20 +45,6 @@ public class HomeController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
-		String td_doit = req.getParameter(DBInfo.td_doit);
-		
-		Map<String, Object> tdMap = new HashMap<String, Object>();
-		
-		tdMap.put(DBInfo.td_doit, td_doit);
-		
-		if( tdService.insert(tdMap) > 0 ) {
-			System.out.println("추가 성공");
-			resp.sendRedirect("/todo/");
-		} else {
-			System.out.println("추가 실패");
-		}
-		
 		
 	}
 
