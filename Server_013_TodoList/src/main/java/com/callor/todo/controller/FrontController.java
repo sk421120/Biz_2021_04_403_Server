@@ -18,6 +18,12 @@ import com.callor.todo.command.TodoCommandImplV1;
 @WebServlet("/")
 public class FrontController extends HttpServlet{
 
+	// URI mapping을 선언하여 URI에 대한 객체를 준비하여 보관할 장소
+	// TodoCommand 인터페이스는 command 객체들의 prototype으로 선언되어 있고
+	// 	여기의 commands mapper 객체에는 여러가지 command 객체를 저장해 둘 수 있다
+	// 인터페이스를 사용하지 않고 Object를 사용할 수 있지만
+	// Object 클래스는 상대적으로 연산비용이 많이 소요되는 클래스 객체이므로
+	// 조금 더 효율적으로 사용하기 위하여 인터페이스를 선언해 두었다.
 	protected Map<String, TodoCommand> commands;
 	
 	// FrontController가 최초 호출될때 한번 실행되어서

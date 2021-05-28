@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.callor.todo.config.DBInfo;
-import com.callor.todo.config.MySQLConnection;
+import com.callor.todo.config.DBContract;
 import com.callor.todo.service.TodoService;
 
 public class TodoServiceImplV1 implements TodoService{
@@ -21,7 +21,7 @@ public class TodoServiceImplV1 implements TodoService{
 	protected Connection dbConn;
 	
 	public TodoServiceImplV1() {
-		dbConn = MySQLConnection.getDBConnection();
+		dbConn = DBContract.getDBConnection();
 	}
 	
 	/* 
