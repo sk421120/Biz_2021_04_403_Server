@@ -35,7 +35,7 @@ public class DBContract {
 	 */
 	static {
 		String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/GuestBook";
+		String url = "jdbc:mysql://localhost:3306/todolist";
 		String user = "gbUser";
 		String pass = "12345";
 		

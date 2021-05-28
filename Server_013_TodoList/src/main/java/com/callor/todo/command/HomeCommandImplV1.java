@@ -44,6 +44,8 @@ public class HomeCommandImplV1 implements TodoCommand{
 		
 		List<Map<String,Object>> tdList = tdService.selectAll();
 		
+		req.setAttribute("TDLIST", tdList);
+		
 		ReqCommand.forward(req,res,"home");
 	}
 

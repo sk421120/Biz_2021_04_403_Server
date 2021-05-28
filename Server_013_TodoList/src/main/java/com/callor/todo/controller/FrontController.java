@@ -43,7 +43,7 @@ public class FrontController extends HttpServlet{
 		 * TodoCommandImplV1 객체를 사용하여 요청을 처리하기 위한 준비
 		 */
 		commands.put("/insert", new TodoCommandImplV1());
-	
+		commands.put("/expire", new TodoCommandImplV1());
 	}
 
 	// doGet(), doPost()로 분리하여 요청을 처리하던 방식을
